@@ -3,17 +3,17 @@ window.produtos = [
 {
   id: 1,
   titulo: "Ursinho de biscuit rosa com detalhes extras que deixam Premium",
-  imagemCard: "/produtos-img/ursinho-rosa.png",
+  imagemCard: "./produtos-img/ursinho-rosa.png",
   carousel: [
-    "/produtos-img/ursinho-rosa.png",
-    "/produtos-img/ursinho-rosa.png",
-    "/produtos-img/ursinho-rosa.png",
-    "/produtos-img/ursinho-rosa.png",
-    "/produtos-img/ursinho-rosa.png",
-    "/produtos-img/ursinho-rosa.png"
+    "./produtos-img/ursinho-rosa.png",
+    "./produtos-img/ursinho-rosa.png",
+    "./produtos-img/ursinho-rosa.png",
+    "./produtos-img/ursinho-rosa.png",
+    "./produtos-img/ursinho-rosa.png",
+    "./produtos-img/ursinho-rosa.png"
   ],
   preco: "68,00",
-  iconRanking: "/assets/icones/icon-mais_vendido.gif",
+  iconRanking: "./assets/icones/icon-mais_vendido.gif",
   ranking: "Mais vendido",
 
   btnZap: "https://www.google.com",
@@ -23,14 +23,14 @@ window.produtos = [
 {
   id: 2,
   titulo: "Menina de Biscuit Rosa totalmente personalizavel",
-  imagemCard: "/produtos-img/menina_rosa.png",
+  imagemCard: "./produtos-img/menina_rosa.png",
   carousel: [
-    "/produtos-img/menina_rosa.png",
-    "/produtos-img/menina_rosa.png",
-    "/produtos-img/menina_rosa.png"
+    "./produtos-img/menina_rosa.png",
+    "./produtos-img/menina_rosa.png",
+    "./produtos-img/menina_rosa.png"
   ],
   preco: "35,00",
-  iconRanking: "/assets/icones/icon-personalizavel.gif",
+  iconRanking: "./assets/icones/icon-personalizavel.gif",
   ranking: "Personalizável",
 
   btnZap: "",
