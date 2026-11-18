@@ -1,0 +1,245 @@
+
+:root {
+  /* FUNDOS */
+  --cor-fundo: #FFF7FA;
+  --cor-fundo-secundario: #FCE7EF;
+  --cor-superficie: #FFFFFF;
+
+  /* IDENTIDADE DA MARCA */
+  --rosa-candy: #EFA8C0;
+  --rosa-principal: #D96B96;
+  --rosa-escuro: #A83F6B;
+  --rosa-borda: #F1DCE5;
+  --dourado: #F0D5A8;
+
+  /* TEXTOS */
+  --cor-titulo: #A83F6B;
+  --cor-subtitulo: #A34E70;
+  --cor-texto: #704653;
+  --cor-texto-claro: #704653;
+  --cor-texto-botao: #FFFFFF;
+
+  /* GRADIENTES */
+  --gradiente-suave: linear-gradient(
+    135deg, #FFF7FA, #FCE7EF, #EFA8C0
+  );
+
+  --gradiente-rosa: linear-gradient(
+    135deg, #EFA8C0, #D96B96, #A83F6B
+  );
+
+  /* TIPOGRAFIA */
+  --fonte-titulo: "Playfair Display", serif;
+  --fonte-texto: "Poppins", sans-serif;
+  --fonte-decorativa: "Dancing Script", cursive;
+
+  /* COMPONENTES */
+  --raio-card: 16px;
+  --raio-botao: 10px;
+  --sombra-card: 0 4px 8px rgba(168, 63, 107, 0.05);
+}
+
+/** FONTS DO GOOGLE **/
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+/***** INICIO DE TODOS OS ESTILOS *****/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  margin-top: 80px;
+}
+
+body {
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte-texto);
+}
+
+h1, h2 {
+  color: var(--cor-titulo);
+  font-family: var(--fonte-titulo);
+}
+
+h3 {
+  color: var(--cor-subtitulo);
+  font-family: "Fredoka", sans-serif;
+}
+
+/* HEADER DO SITE */
+header.cabecalho {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: space-between;
+  padding: 5px;
+  flex-wrap: nowrap;
+  background-color: var(--cor-superficie);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  
+}
+
+img.logo {
+  
+  max-width: 130px;
+  width: 100%;
+  height: auto;
+  padding-left: 5px;
+  
+}
+
+/* BANNER PRINCIPAL */
+
+section.banner-principal {
+  max-width: 100%;
+  height: auto;
+  background: var(--cor-fundo-secundario);
+}
+
+/* CARD DOS PRODUTOS */
+
+section.secao-produtos {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+div.lista-produtos {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  justify-content: center;
+  align-items: stretch;
+  padding: 5px 10px;
+  gap: 5px;
+}
+
+article.card-produto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: var(--cor-superficie);
+  border: 1px solid var(--rosa-borda);
+  border-radius: var(--raio-card);
+  box-shadow: var(--sombra-card);
+  overflow: hidden;
+  
+}
+
+div.imgcard-container {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #f0f0f0;
+  overflow: hidden;
+}
+img.produto-imagem {
+  width: 100%;
+  height: auto;
+  transition: 0.4s;
+}
+
+img.produto-imagem:hover { transform: scale(1.1); }
+
+
+div.produto-conteudo {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 5px auto;
+  padding: 0 7px;
+}
+
+div.produto-conteudo h3.produto-titulo {
+  font-size: 0.8rem;
+  letter-spacing: 0.02rem;
+  line-height: 0.95rem;
+  width: 100%;
+  font-weight: 400;
+  display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+div.produto-conteudo div.conteudo-preco {
+  width: 100%;
+  height: auto;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+div.produto-conteudo p.produto-preco {
+  font-size: 1.4rem;
+  color: var(--cor-titulo);
+  font-weight: 600;
+  
+}
+
+div.container-ranking {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+img.icon-ranking {
+  width: 25px;
+  height: auto;
+}
+
+div.produto-conteudo p.produto-ranking {
+  font-size: 0.5rem;
+  font-weight: 500;
+  border: 1px solid var(--cor-subtitulo);
+  border-radius: 10px;
+  padding: 2px 5px;
+  letter-spacing: 0.02rem;
+  color: var(--cor-subtitulo);
+  
+}
+
+article.card-produto a.botao-produto {
+  background-color: var(--rosa-principal);
+  color: var(--cor-texto-botao);
+  width: 90%;
+  height: auto;
+  text-align: center;
+  margin-block-start: auto;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 7px 0;
+  font-size: 0.9rem;
+  border-radius: var(--raio-botao);
+  transition: 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+}
+.card-produto a.botao-produto:hover {
+  background-color: #c84277;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transform: scale(0.98);
+}

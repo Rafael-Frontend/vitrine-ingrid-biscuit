@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#D96B96" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#A83F6B" media="(prefers-color-scheme: dark)">
+  
+  <title></title>
+      <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonte para títulos -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Fonte para textos -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Fonte decorativa -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+
+    <!-- Fonte alternativa para subtítulos -->      
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&display=swap" rel="stylesheet">
+
+    <!-- Fonte alternativa para menus e botões -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome icones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  
+    <link rel="stylesheet" href="./pagina-produto.css">
+</head>
+<body>
+  <header>
+    <a href="./index.html" class="btn-return"><i class="fa-solid fa-house"></i></a>
+    <img src="./assets/logo/img-logo.png" class="logo" aria-label="Página inicial" loading="laze"> 
+  </header>
+  <main>
+    
+      <div class="carousel">
+      
+          <div class="carousel-track">
+            
+              <!-- IMAGENS DO CARROSSEL AQUI -->
+            
+          </div>
+      
+          <span class="carousel-counter"></span>
+      
+      </div>
+    <section class="title-container">
+      <h2 class="info-title"></h2>
+      <div class="price-gif">
+          <span><p>R$</p><span id="preco-produto"></span></span>
+          <div>
+              <img id="icon-ranking" class="icon-ranking" alt="Indicador de ranking">
+              <p id="ranking"></p>
+          </div>
+      </div>
+    </section>
+
+    <section class="info">
+      
+      <div class="info-botoes">
+        <a class="botao-zap" target="_blank"><img src="./assets/icones/icon-zap.png" alt="Ícone do whatsapp" loading="laze">Comprar pelo Whatsapp</a>
+        <a class="botao-ml" target="_blank"><img src="./assets/icones/icon-ml.png" alt="Ícone do Mercado Livre" loading="laze">Comprar no Mercado Livre</a>
+      </div>
+                    <!-- DIVISOR DA SEÇÃO -->
+      <span class="divisor-secao">Informações do produto</span>
+      
+      <div class="info-container">
+          <h3 class="info-subtitle">Descrição</h3>
+          <p>Occaecat laboris qui aute proident et nisi est nulla officia officia ut eu labore magna pariatur amet tempor reprehenderit irure esse incididunt minim non voluptate.</p>
+        
+          <h3 class="info-subtitle">Características</h3>
+          <ul class="info-list-desc">
+            <li>Largura x Altura: <span>6 cm x 8 mm</span></li>
+            <li>Profundidade: <span>18 mm</span></li>
+            <li>Cor predominante: <span>Rosa</span></li>
+            <li>Peso aproximado: <span>15 g</span></li>
+            <li>Uso ideal: <span>Topo de bolo</span></li>
+            <li>Material: <span>Acrílico</span></li>
+          </ul>
+        
+          <h3 class="info-subtitle">Outros</h3>
+          <ul class="info-list-desc">
+            <li>Resistente a água: <span>Sim</span></li>
+            <li>Resistente ao fogo: <span>Não</span></li>
+            <li>Resistente a poeira: <span>Sim</span></li>
+            <li>Resistente a umidade: <span>Talvez</span></li>
+          </ul>
+        
+          <h3 class="info-subtitle">Precauções</h3>
+          <p>Manter fora do alcance de crianças e animais, pode conter partes pequenas que podem ser engolidas.</p>
+          <p>Não nos resposabilizamos pelo uso inadequado do produto.</p>
+
+
+        </div>
+      
+        <div class="info-botoes">
+          <a class="botao-zap" target="_blank"><img src="./assets/icones/icon-zap.png" alt="Ícone do whatsapp" loading="laze">Comprar pelo Whatsapp</a>
+            
+          <a class="botao-ml" target="_blank"><img src="./assets/icones/icon-ml.png" alt="Ícone do Mercado Livre" loading="laze">Comprar no Mercado Livre</a>
+        </div>
+                          <!-- DIVISOR DA SEÇÃO -->
+      <span class="divisor-secao">Você também pode gostar</span>
+    </section>
+    
+    
+  </main>
+
+  <script type="text/javascript" src="./lista-produtos.js"></script>
+  <script type="text/javascript" src="./pagina-produto.js"></script>
+
+  <script type="text/javascript">
+    
+        // CARROSSEL DE IMAGENS DA PAGINA COMPLETA DOS PRODUTOS
+
+
+const track = document.querySelector('.carousel-track');
+const counter = document.querySelector('.carousel-counter');
+
+const items = track.querySelectorAll('.carousel-item');
+
+// FUNÇÃO PARA ATUALIZAR O CONTADOR 
+function atualizarContador() {
+
+    const position = track.scrollLeft;
+    const width = track.clientWidth;
+
+    const index = Math.round(position / width);
+
+    counter.textContent = `${index + 1}/${items.length}`;
+}
+
+// ATUALIZA ASSIM QUE A PÁGINA CARREGAR
+atualizarContador();
+
+// ATUALIZA AO PASSAR AS IMAGENS
+track.addEventListener('scroll', atualizarContador);
+    
+    
+  </script>
+</body>
+</html>
