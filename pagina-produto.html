@@ -118,28 +118,119 @@
         // CARROSSEL DE IMAGENS DA PAGINA COMPLETA DOS PRODUTOS
 
 
+
 const track = document.querySelector('.carousel-track');
 const counter = document.querySelector('.carousel-counter');
 
-const items = track.querySelectorAll('.carousel-item');
+const items = Array.from(
+    track.querySelectorAll('.carousel-item')
+);
 
-// FUNÇÃO PARA ATUALIZAR O CONTADOR 
-function atualizarContador() {
+const total = items.length;
 
-    const position = track.scrollLeft;
-    const width = track.clientWidth;
+// VERIFICA SE EXISTEM IMAGENS
+if (total > 0) {
 
-    const index = Math.round(position / width);
+    // CRIA AS CÓPIAS DAS EXTREMIDADES
+    if (total > 1) {
 
-    counter.textContent = `${index + 1}/${items.length}`;
+        const primeiroClone = items[0].cloneNode(true);
+        const ultimoClone = items[total - 1].cloneNode(true);
+
+        primeiroClone.setAttribute('aria-hidden', 'true');
+        ultimoClone.setAttribute('aria-hidden', 'true');
+
+        track.appendChild(primeiroClone);
+        track.insertBefore(ultimoClone, items[0]);
+
+        // COMEÇA NA PRIMEIRA IMAGEM ORIGINAL
+        track.scrollLeft = track.clientWidth;
+    }
+
+    // ATUALIZA O CONTADOR
+    function atualizarContador() {
+
+        const width = track.clientWidth;
+
+        const position = Math.round(
+            track.scrollLeft / width
+        );
+
+        let index;
+
+        if (total > 1) {
+            index = (position - 1 + total) % total;
+        } else {
+            index = 0;
+        }
+
+        counter.textContent = `${index + 1}/${total}`;
+    }
+
+    // CORRIGE O LOOPING NAS EXTREMIDADES
+    function ajustarLoop() {
+
+        if (total <= 1) return;
+
+        const width = track.clientWidth;
+
+        const position = Math.round(
+            track.scrollLeft / width
+        );
+
+        if (position === 0) {
+
+            // RETORNA PARA A ÚLTIMA IMAGEM ORIGINAL
+            track.scrollLeft = width * total;
+
+        } else if (position === total + 1) {
+
+            // RETORNA PARA A PRIMEIRA IMAGEM ORIGINAL
+            track.scrollLeft = width;
+        }
+
+        atualizarContador();
+    }
+
+    // ACOMPANHA A ROLAGEM
+    let scrollTimer;
+
+    track.addEventListener('scroll', function() {
+
+        atualizarContador();
+
+        clearTimeout(scrollTimer);
+
+        // COMPATIBILIDADE COM NAVEGADORES
+        scrollTimer = setTimeout(ajustarLoop, 180);
+
+    });
+
+    // DETECTA O FINAL DA ROLAGEM
+    track.addEventListener('scrollend', ajustarLoop);
+
+    // CONTADOR INICIAL
+    atualizarContador();
+
+    // AJUSTA A POSIÇÃO SE A TELA FOR REDIMENSIONADA
+    window.addEventListener('resize', function() {
+
+        if (total > 1) {
+
+            const width = track.clientWidth;
+
+            const position = Math.round(
+                track.scrollLeft / width
+            );
+
+            const index = (position - 1 + total) % total;
+
+            track.scrollLeft = width * (index + 1);
+        }
+
+        atualizarContador();
+    });
 }
-
-// ATUALIZA ASSIM QUE A PÁGINA CARREGAR
-atualizarContador();
-
-// ATUALIZA AO PASSAR AS IMAGENS
-track.addEventListener('scroll', atualizarContador);
-    
     
   </script>
 </body>

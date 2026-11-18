@@ -137,7 +137,7 @@ header img.logo {
     display: flex;
     width: 100%;
     overflow-x: auto;
-    
+
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
 
@@ -151,7 +151,9 @@ header img.logo {
 .carousel-item {
     flex: 0 0 100%;
     width: 100%;
+
     scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
 .carousel-item img {
